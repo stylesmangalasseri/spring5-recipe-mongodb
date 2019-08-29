@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+
+<title>Recipe Home</title>
+</head>
+
+
+<body>
+
+	<div class="row col-md-6" style="float: left;">
+
+		<div class="panel-heading">
+			<h1 class="panel-title">My Recipes !!!</h1>
+		</div>
+		
+		<table class="table table-bordered" style="margin-top: 5%">
+			<tr>
+				<th>ID</th>
+				<th>Description</th>
+				<th>View</th>
+			</tr>
+			<tr th:each="recipe:${recipes}">
+				<td th:text="${recipe.id}"></td>
+				<td th:text="${recipe.description}"></td>
+				<td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a> </td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
